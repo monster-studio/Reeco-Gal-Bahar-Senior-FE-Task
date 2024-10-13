@@ -12,6 +12,14 @@ To install the necessary packages for this project, run:
 npm install
 ```
 
+## Installation
+
+To start the development server and view the project in your browser, run:
+
+```bash
+npm start
+```
+
 ## Usage
 
 ### Importing the Carousel Component
