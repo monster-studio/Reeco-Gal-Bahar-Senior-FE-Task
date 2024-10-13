@@ -1,5 +1,3 @@
-// src/hooks/useVerticalCarousel.ts
-
 import { useRef, useState, useEffect, useCallback } from 'react';
 
 const useVerticalCarousel = (itemsLength: number, itemMargin: number) => {

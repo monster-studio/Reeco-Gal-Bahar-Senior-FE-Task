@@ -49,6 +49,7 @@ const Page = () => (
     itemsOnViewportDesktop={4}
     itemsOnViewportMobile={1}
     orientation="horizontal" // or "vertical"
+    itemMargin={8}
   />
 );
 ```

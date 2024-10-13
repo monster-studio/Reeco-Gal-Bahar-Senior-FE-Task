@@ -1,5 +1,3 @@
-// src/components/VerticalCarousel.tsx
-
 import { useCarouselContext } from '../CarouselContext';
 import ArrowButton from '../arrowButton/ArrowButton';
 import CarouselItem from '../carouselItem/CarouselItem';
