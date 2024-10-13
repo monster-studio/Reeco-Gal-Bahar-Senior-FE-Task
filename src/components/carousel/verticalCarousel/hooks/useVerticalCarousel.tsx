@@ -1,18 +1,15 @@
-import { useRef, useState, useEffect } from 'react';
-import ArrowButton from './arrowButton/ArrowButton';
-import CarouselItem from './carouselItem/CarouselItem';
-import { useCarouselContext } from './CarouselContext';
+// src/hooks/useVerticalCarousel.ts
 
-const VerticalCarousel = <T,>() => {
-  const { items, itemType, itemsOnViewport } = useCarouselContext<T>();
+import { useRef, useState, useEffect, useCallback } from 'react';
+
+const useVerticalCarousel = (itemsLength: number, itemMargin: number) => {
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const [isUpDisabled, setIsUpDisabled] = useState(true);
   const [isDownDisabled, setIsDownDisabled] = useState(false);
-  const itemMargin = 8;
 
-  const getScrollAmount = () => {
+  const getScrollAmount = (): number => {
     if (scrollRef.current) {
-      const itemHeight = scrollRef.current.scrollHeight / items.length;
+      const itemHeight = scrollRef.current.scrollHeight / itemsLength;
       return itemHeight + itemMargin;
     }
     return 0;
@@ -32,7 +29,7 @@ const VerticalCarousel = <T,>() => {
     }
   };
 
-  const updateButtonStates = () => {
+  const updateButtonStates = useCallback(() => {
     if (scrollRef.current) {
       const scrollTop = scrollRef.current.scrollTop;
       const scrollHeight = scrollRef.current.scrollHeight;
@@ -41,7 +38,7 @@ const VerticalCarousel = <T,>() => {
       setIsUpDisabled(scrollTop <= itemMargin);
       setIsDownDisabled(scrollTop + clientHeight >= scrollHeight - itemMargin);
     }
-  };
+  }, [itemMargin]);
 
   useEffect(() => {
     const currentScrollRef = scrollRef.current;
@@ -53,32 +50,19 @@ const VerticalCarousel = <T,>() => {
         currentScrollRef.removeEventListener('scroll', updateButtonStates);
       }
     };
-  }, [items]);
+  }, [updateButtonStates]);
 
   useEffect(() => {
     updateButtonStates();
-  }, [items]);
+  }, [itemsLength, updateButtonStates]);
 
-  return (
-    <div className="relative max-w-full overflow-hidden">
-      <div className="flex flex-col gap-2 justify-center items-center">
-        <ArrowButton onClick={handleUpClick} disabled={isUpDisabled} direction="up" />
-        <div
-          ref={scrollRef}
-          className="flex overflow-y-auto scrollbar-hidden whitespace-nowrap flex-col max-h-52"
-          style={{
-            scrollSnapType: 'y mandatory',
-            scrollBehavior: 'smooth',
-          }}
-        >
-          {items.map((item, index) => (
-            <CarouselItem key={`item-${index}`} index={index}  />
-          ))}
-        </div>
-        <ArrowButton onClick={handleDownClick} disabled={isDownDisabled} direction="down" />
-      </div>
-    </div>
-  );
+  return {
+    scrollRef,
+    isUpDisabled,
+    isDownDisabled,
+    handleUpClick,
+    handleDownClick,
+  };
 };
 
-export default VerticalCarousel;
+export default useVerticalCarousel;

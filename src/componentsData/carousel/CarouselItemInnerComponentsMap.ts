@@ -1,8 +1,8 @@
 import { lazy } from 'react';
 
-const CarouselItemInnerComponentsMap = {
+const carouselItemInnerComponentsMap = {
   'Product Card': lazy(() => import('../../components/productCard/ProductCard')),
   'Chip': lazy(() => import('../../components/chip/Chip')),
 };
 
-export default CarouselItemInnerComponentsMap;
+export default carouselItemInnerComponentsMap;

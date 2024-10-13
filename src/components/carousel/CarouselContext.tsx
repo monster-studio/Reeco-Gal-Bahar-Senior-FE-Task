@@ -4,6 +4,7 @@ interface CarouselContextProps<T> {
   items: T[];
   itemType: string;
   itemsOnViewport: number;
+  itemMargin: number;
 }
 
 const CarouselContext = createContext<CarouselContextProps<any> | undefined>(undefined);

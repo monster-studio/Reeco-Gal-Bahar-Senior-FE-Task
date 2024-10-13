@@ -16,6 +16,7 @@ const carouselDemoPage = () => {
           itemsOnViewportDesktop={4}
           itemsOnViewportMobile={1}
           orientation="horizontal"
+          itemMargin={8}
         />
       </Section>
 
@@ -27,6 +28,7 @@ const carouselDemoPage = () => {
           items={mockDataChip}
           itemsOnViewportDesktop={4}
           orientation="vertical"
+          itemMargin={8}
         />
       </Section>
     </div>

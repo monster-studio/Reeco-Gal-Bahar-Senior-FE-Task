@@ -1,5 +1,5 @@
-import HorizontalCarousel from './HorizontalCarousel';
-import VerticalCarousel from './VerticalCarousel';
+import HorizontalCarousel from './horizontalCarousel/HorizontalCarousel';
+import VerticalCarousel from './verticalCarousel/VerticalCarousel';
 import { isMobile } from 'react-device-detect';
 import CarouselContext from './CarouselContext';
 
@@ -9,6 +9,7 @@ interface CarouselProps<T> {
   itemsOnViewportDesktop?: number;
   itemsOnViewportMobile?: number;
   orientation?: 'horizontal' | 'vertical';
+  itemMargin?: number;
 }
 
 const Carousel = <T,>({
@@ -17,6 +18,7 @@ const Carousel = <T,>({
   itemsOnViewportDesktop = 4,
   itemsOnViewportMobile = 1,
   orientation = 'horizontal',
+  itemMargin = 8,
 }: CarouselProps<T>) => {
   const itemsOnViewport = isMobile ? itemsOnViewportMobile : itemsOnViewportDesktop;
 
@@ -24,6 +26,7 @@ const Carousel = <T,>({
     items,
     itemType,
     itemsOnViewport,
+    itemMargin,
   };
 
   return (
