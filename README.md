@@ -24,7 +24,7 @@ import Carousel from "./path/to/Carousel";
 
 ### carouselItemInnerComponentsMap
 
-The carouselItemInnerComponentsMap is used to map item types to their corresponding components. You can extend this map by adding more components as needed (src\componentsData\carousel\carouselItemInnerComponentsMap.ts):
+The `carouselItemInnerComponentsMap` is used to map item types to their corresponding components. You can extend this map by adding more components as needed (`src\componentsData\carousel\carouselItemInnerComponentsMap.ts`):
 
 ```const carouselItemInnerComponentsMap = {
   'Product Card': lazy(() => import('../../productCard/ProductCard')),
@@ -76,9 +76,9 @@ const MyComponent = () => {
 };
 ```
 
-## Adjust Mockdata for this specific premade example
+## Adjust Mock Data for This Specific Pre-made Example
 
-Edit mockData.ts to edit the carousel data (src\componentsData\carousel\mockData.ts)
+Edit `mockData.ts` to modify the carousel data (in `src/componentsData/carousel/mockData.ts`).
 
 ## Conclusion
 
