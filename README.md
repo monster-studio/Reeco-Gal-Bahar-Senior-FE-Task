@@ -22,11 +22,11 @@ To use the Carousel in your project, first import it:
 import Carousel from "./path/to/Carousel";
 ```
 
-### CarouselItemInnerComponentsMap
+### carouselItemInnerComponentsMap
 
-The CarouselItemInnerComponentsMap is used to map item types to their corresponding components. You can extend this map by adding more components as needed:
+The carouselItemInnerComponentsMap is used to map item types to their corresponding components. You can extend this map by adding more components as needed (src\componentsData\carousel\carouselItemInnerComponentsMap.ts):
 
-```const CarouselItemInnerComponentsMap = {
+```const carouselItemInnerComponentsMap = {
   'Product Card': lazy(() => import('../../productCard/ProductCard')),
   'Chip': lazy(() => import('../../chip/Chip')),
   // Add more mappings here as needed
@@ -42,7 +42,7 @@ const items = [
   /* your item data here */
 ];
 
-const App = () => (
+const Page = () => (
   <Carousel
     items={items}
     itemType="Product Card" // or "Chip" (You can add more 'itemType's as many as you wish)
@@ -74,6 +74,10 @@ const MyComponent = () => {
   return <div>{/* Render your component using context values */}</div>;
 };
 ```
+
+## Adjust Mockdata for this specific premade example
+
+Edit mockData.ts to edit the carousel data (src\componentsData\carousel\mockData.ts)
 
 ## Conclusion
 

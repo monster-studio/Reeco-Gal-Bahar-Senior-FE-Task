@@ -1,11 +1,11 @@
 import { Suspense } from 'react';
 import Loading from '../../loading/Loading';
-import CarouselItemInnerComponentsMap from '../../../componentsData/carousel/CarouselItemInnerComponentsMap';
+import carouselItemInnerComponentsMap from '../../../componentsData/carousel/carouselItemInnerComponentsMap';
 import { useCarouselContext } from '../CarouselContext';
 
 const CarouselItem = ({ index }) => {
   const { items, itemType, itemsOnViewport } = useCarouselContext();
-  const CarouselItemInner = CarouselItemInnerComponentsMap[itemType];
+  const CarouselItemInner = carouselItemInnerComponentsMap[itemType];
 
   return (
     <div style={{ minWidth: `${100 / itemsOnViewport}%`, scrollSnapAlign: 'start' }}>
