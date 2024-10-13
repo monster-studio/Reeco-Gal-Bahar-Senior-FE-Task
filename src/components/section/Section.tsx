@@ -6,7 +6,7 @@ type SectionProps = {
 
 const Section: React.FC<SectionProps> = ({ children }) => {
   return (
-    <div className='flex flex-col items-center w-[800px] max-w-full my-2'>
+    <div className='flex flex-col items-center w-[800px] max-w-full my-4'>
       {children}
     </div>
   );

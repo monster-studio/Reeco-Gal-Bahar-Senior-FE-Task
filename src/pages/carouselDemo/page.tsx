@@ -4,11 +4,10 @@ import { mockDataProductCard, mockDataChip } from '../../componentsData/carousel
 
 const carouselDemoPage = () => {
   return (
-    <div className="p-4 flex flex-col items-center">
-      <img src="https://www.reeco.io/assets/logo.8468681a.svg" alt="Reeco" className="w-20" />
+    <div className="flex flex-col items-center">
 
       <Section>
-        <h2 className="text-lg font-bold mt-8">Product Card Carousel</h2>
+        <h2 className="text-lg font-bold">Product Card Carousel</h2>
         <h3 className="text-sm mb-8 text-gray-500">Horizontal Implementation</h3>
         <Carousel
           itemType="Product Card"
@@ -21,7 +20,7 @@ const carouselDemoPage = () => {
       </Section>
 
       <Section>
-        <h2 className="text-lg font-bold mt-8">Chip Carousel</h2>
+        <h2 className="text-lg font-bold">Chip Carousel</h2>
         <h3 className="text-sm mb-8 text-gray-500">Vertical Implementation</h3>
         <Carousel 
           itemType="Chip"
